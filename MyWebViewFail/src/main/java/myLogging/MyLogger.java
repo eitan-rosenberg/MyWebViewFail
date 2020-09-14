@@ -1,5 +1,7 @@
 package myLogging;
 
+import java.io.PrintWriter;
+import java.io.StringWriter;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Locale;
@@ -10,6 +12,24 @@ import java.util.logging.Logger;
 import java.util.logging.SimpleFormatter;
 
 public class MyLogger extends Logger {
+
+	public static String getPrintStackTrace(final Throwable throwable) {
+
+		final StringWriter stringWriter = new StringWriter();
+		final PrintWriter printWriter = new PrintWriter(stringWriter);
+
+		printWriter.println();
+		printWriter.print("\t");
+
+		throwable.printStackTrace(printWriter);
+
+		printWriter.close();
+
+		final String string = stringWriter.toString();
+
+		return string.substring(0, string.length() - 2);
+
+	}
 
 	public MyLogger(final Class<?> clazz) {
 
