@@ -6,6 +6,7 @@ import java.nio.file.Path;
 import java.util.logging.Level;
 
 import javafx.application.Application;
+import javafx.application.Platform;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
@@ -63,9 +64,12 @@ public class MyApplication extends Application {
 
 				final URL url = path.toUri().toURL();
 
-				webEngine.load(url.toString());
+//				webEngine.load(url.toString());
 
-				myLogger.log(Level.INFO, webEngine.getLocation());
+				Platform.runLater(() -> {
+					webEngine.load(url.toString());
+					myLogger.log(Level.INFO, String.format("Location %s ", webEngine.getLocation()));
+				});
 
 			} catch (final Exception exception) {
 				exception.printStackTrace();
