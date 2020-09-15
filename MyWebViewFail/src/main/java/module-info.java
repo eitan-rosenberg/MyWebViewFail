@@ -7,5 +7,6 @@ module MyWebViewFail {
 	requires transitive javafx.web;
 
 	requires java.logging;
+	requires java.desktop;
 
 }
