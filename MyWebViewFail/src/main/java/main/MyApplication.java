@@ -64,6 +64,8 @@ public class MyApplication extends Application {
 
 //				path = Path.of("K:\\JavaAPPs\\MyWebViewFail\\MySetting.java.18068581270509216215.htm");
 
+//				path = Path.of("K:\\JavaAPPs\\MyWebViewFail\\MySetting.java.18068581270509216215.htm");
+
 				myLogger.log(Level.INFO, String.format("%s exists %s ", path, Files.exists(path)));
 
 //				final String readString = Files.readString(path);
