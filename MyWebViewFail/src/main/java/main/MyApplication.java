@@ -58,17 +58,24 @@ public class MyApplication extends Application {
 
 			try {
 
-				final Path path = Path.of("K:\\JavaAPPs\\MyWebViewFail\\MyMatcher.java.13173647109962591274.htm");
+				Path path = Path.of(".");
+
+				path = Path.of("K:\\Syncurl\\Bookmark.htm");
+
+//				path = Path.of("K:\\JavaAPPs\\MyWebViewFail\\MySetting.java.18068581270509216215.htm");
 
 				myLogger.log(Level.INFO, String.format("%s exists %s ", path, Files.exists(path)));
 
+//				final String readString = Files.readString(path);
+
 				final URL url = path.toUri().toURL();
 
-//				webEngine.load(url.toString());
+//				webEngine.loadContent(readString);
+				webEngine.load(url.toString());
+				myLogger.log(Level.INFO, String.format("Location %s ", webEngine.getLocation()));
 
 				Platform.runLater(() -> {
-					webEngine.load(url.toString());
-					myLogger.log(Level.INFO, String.format("Location %s ", webEngine.getLocation()));
+
 				});
 
 			} catch (final Exception exception) {
